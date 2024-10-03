@@ -1,0 +1,30 @@
+[package]
+name = "explainshell-cli-rs"
+edition = "2021"
+version = "0.1.0"
+authors = [ "Cats-rs" ]
+description = "Show command explainations using ExplainShell"
+
+[dependencies]
+scraper = "0.20.0"
+
+[dependencies.prettytable]
+default-features = false
+features = [ "win_crlf" ]
+version = "0.10.0"
+
+[dependencies.reqwest]
+features = [ "blocking" ]
+version = "0.12.8"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[[bin]]
+path = "src/main.rs"
+name = "explainshell-cli-rs"
+required-features = [  ]
